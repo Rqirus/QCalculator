@@ -139,7 +139,7 @@ void MainWindow::btnPercentSlot()
 void MainWindow::pushNumber(char o)
 {
     if(!cur.isEmpty())
-    stk.push(cur);
+        stk.push(cur);
     exp = stk.top() + o;
     cur="";
     opt = o;
@@ -148,19 +148,26 @@ void MainWindow::pushNumber(char o)
 
 void MainWindow::btnSubSlot()
 {
+    if(stk.size()>1)
+        btnEquSlot();
     pushNumber('-');
-
 }
 void MainWindow::btnAddSlot()
 {
+    if(stk.size()>1)
+        btnEquSlot();
     pushNumber('+');
 }
 void MainWindow::btnMulSlot()
 {
+    if(stk.size()>1)
+        btnEquSlot();
     pushNumber('*');
 }
 void MainWindow::btnDivSlot()
 {
+    if(stk.size()>1)
+        btnEquSlot();
     pushNumber('/');
 }
 void MainWindow::btnReciprocal()
